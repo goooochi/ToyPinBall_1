@@ -7,7 +7,7 @@ public class Flipper : MonoBehaviour
 {
     // Inspecterで値を変更する
     public float spring = 40000;
-    public float openAngle = 60; // 開く角度
+    public float openAngle = 50; // 開く角度
     public float closeAngle = 0; // 閉じる角度
 
     // Hinge Joint

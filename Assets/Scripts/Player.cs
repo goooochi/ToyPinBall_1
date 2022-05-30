@@ -6,9 +6,9 @@ public class Player : MonoBehaviour
 {
     private float power = 10.0f;
 
-    float LeftforceAngle = -10.0f;
+    float LeftforceAngle = -1.5f;
 
-    float RightforceAngle = 10.0f;
+    float RightforceAngle = 1.5f;
 
     Vector3 LeftforceDirection;
     Vector3 RightforceDirection;
@@ -29,10 +29,10 @@ public class Player : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionStay(Collision collision)
     {
         // 今回はタグでプレイヤーかどうか判断
-        if (other.transform.CompareTag("LeftMainWall"))
+        if (collision.gameObject.name == "LeftMainWall")
         {
             // プレイヤーのリジッドボディを取得
             Rigidbody playerRigid = transform.GetComponent<Rigidbody>();
@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
             playerRigid.AddForce(-LeftforceDirection * power);
         }
 
-        if (other.transform.CompareTag("RightMainWall"))
+        if (collision.gameObject.name == "RightMainWall")
         {
             // プレイヤーのリジッドボディを取得
             Rigidbody playerRigid = transform.GetComponent<Rigidbody>();

@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+
+    public GameManager gameManager;
+
+
     private float power = 10.0f;
 
     float LeftforceAngle = -1.5f;
@@ -15,12 +20,15 @@ public class Player : MonoBehaviour
 
     private GameObject hand;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
         LeftforceDirection = new Vector3(LeftforceAngle, 1.0f, 1.0f);
         RightforceDirection = new Vector3(RightforceAngle, 1.0f, 1.0f);
 
+        
     }
 
     // Update is called once per frame
@@ -29,7 +37,7 @@ public class Player : MonoBehaviour
         
     }
 
-    private void OnCollisionStay(Collision collision)
+    public void OnCollisionStay(Collision collision)
     {
         // 今回はタグでプレイヤーかどうか判断
         if (collision.gameObject.name == "LeftMainWall")
@@ -49,5 +57,20 @@ public class Player : MonoBehaviour
             // プレイヤーのリジッドボディに、現在の進行方向の逆向きに力を加える
             playerRigid.AddForce(-RightforceDirection * power);
         }
+
+
     }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "GameOverCube")
+        {
+            gameManager.Out1.SetActive(true);
+            Destroy(this.gameObject);
+            
+
+        }
+        
+    }
+
 }

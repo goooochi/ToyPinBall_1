@@ -31,15 +31,15 @@ public class Bumper : MonoBehaviour
 
             Debug.Log(playerRigid.velocity.magnitude.ToString());
 
-            if (playerRigid.velocity.magnitude >= 2.7f)
+            if (playerRigid.velocity.magnitude >= 0.0f)
             {
                 // プレイヤーのリジッドボディに、現在の進行方向の逆向きに力を加える
-                playerRigid.AddForce(-playerRigid.velocity * power * 0.8f);
+                playerRigid.AddForce(-playerRigid.velocity * power * 1.8f);
             }
-            else
-            {
-                playerRigid.AddForce(-playerRigid.velocity * power * 5);
-            }
+            //else
+            //{
+            //    playerRigid.AddForce(-playerRigid.velocity * power * 5);
+            //}
             
             
         }

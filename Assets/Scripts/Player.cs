@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
 
     
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +43,8 @@ public class Player : MonoBehaviour
         // 今回はタグでプレイヤーかどうか判断
         if (collision.gameObject.name == "LeftMainWall")
         {
+
+            Debug.Log("Yuuki");
             // プレイヤーのリジッドボディを取得
             Rigidbody playerRigid = transform.GetComponent<Rigidbody>();
 
@@ -61,16 +64,6 @@ public class Player : MonoBehaviour
 
     }
 
-    public void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.name == "GameOverCube")
-        {
-            gameManager.Out1.SetActive(true);
-            Destroy(this.gameObject);
-            
-
-        }
-        
-    }
+    
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bumper : MonoBehaviour
 {
-    private float power = 250.0f;
+    private float power = 550.0f;
 
     
     // Start is called before the first frame update
@@ -31,17 +31,12 @@ public class Bumper : MonoBehaviour
 
             Debug.Log(playerRigid.velocity.magnitude.ToString());
 
-            if (playerRigid.velocity.magnitude >= 0.0f)
-            {
+            
                 // プレイヤーのリジッドボディに、現在の進行方向の逆向きに力を加える
-                playerRigid.AddForce(-playerRigid.velocity * power * 1.8f);
-            }
-            //else
-            //{
-            //    playerRigid.AddForce(-playerRigid.velocity * power * 5);
-            //}
+                playerRigid.AddForce(-playerRigid.velocity * power);
             
-            
+
+
         }
     }
 }

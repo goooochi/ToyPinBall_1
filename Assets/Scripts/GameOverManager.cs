@@ -11,7 +11,9 @@ public class GameOverManager : MonoBehaviour
 
     public int outCount = 0;
 
-    public GameObject Ball;
+    //public GameObject Ball;
+
+    public GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -27,18 +29,14 @@ public class GameOverManager : MonoBehaviour
         if (outCount == 1)
         {
             Out1.SetActive(true);
-        }
-
-        if (outCount == 2)
+        }else if (outCount == 2)
         {
             Out2.SetActive(true);
-        }
-        else
+        }else if(outCount == 3)
         {
-            outCount = 0;
-
+            gameManager.turnEndText.text = "交代！";
+            
         }
-
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -46,15 +44,11 @@ public class GameOverManager : MonoBehaviour
         if (collision.gameObject.tag == "Ball")
         {
             outCount++;
-            Destroy(collision.gameObject);
-
-            int position = Random.Range(-8, 9);
-
-            Instantiate(Ball, new Vector3(position, -4, 0), Quaternion.identity);
-
+            if(outCount <= 2)
+            {
+                gameManager.BallInstantiate();
+            }
         }
-
+        Destroy(collision.gameObject);
     }
-
-
 }

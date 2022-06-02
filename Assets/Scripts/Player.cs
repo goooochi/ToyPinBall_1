@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
 
     public GameManager gameManager;
 
-
     private float power = 10.0f;
 
     float LeftforceAngle = -1.5f;
@@ -18,18 +17,12 @@ public class Player : MonoBehaviour
     Vector3 LeftforceDirection;
     Vector3 RightforceDirection;
 
-    private GameObject hand;
-
-    
-
 
     // Start is called before the first frame update
     void Start()
     {
         LeftforceDirection = new Vector3(LeftforceAngle, 1.0f, 1.0f);
         RightforceDirection = new Vector3(RightforceAngle, 1.0f, 1.0f);
-
-        
     }
 
     // Update is called once per frame
@@ -41,10 +34,8 @@ public class Player : MonoBehaviour
     public void OnCollisionStay(Collision collision)
     {
         // 今回はタグでプレイヤーかどうか判断
-        if (collision.gameObject.name == "LeftMainWall")
+        if (collision.gameObject.tag == "LeftMainWall")
         {
-
-            Debug.Log("Yuuki");
             // プレイヤーのリジッドボディを取得
             Rigidbody playerRigid = transform.GetComponent<Rigidbody>();
 
@@ -52,7 +43,7 @@ public class Player : MonoBehaviour
             playerRigid.AddForce(-LeftforceDirection * power);
         }
 
-        if (collision.gameObject.name == "RightMainWall")
+        if (collision.gameObject.tag == "RightMainWall")
         {
             // プレイヤーのリジッドボディを取得
             Rigidbody playerRigid = transform.GetComponent<Rigidbody>();
@@ -61,9 +52,5 @@ public class Player : MonoBehaviour
             playerRigid.AddForce(-RightforceDirection * power);
         }
 
-
     }
-
-    
-
 }

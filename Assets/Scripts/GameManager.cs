@@ -8,11 +8,15 @@ public class GameManager : MonoBehaviour
 
     public Text scoreText;
 
+    InputTextManager inputTextManager;
+
     public int score;
 
     public Text turnEndText;
 
     public GameObject Ball;
+
+    public Text UserName;
 
     public bool isPlaying;
 
@@ -23,6 +27,7 @@ public class GameManager : MonoBehaviour
         score = 0;
         Instantiate(Ball, new Vector3(-7, -3, 1), Quaternion.identity);
         isPlaying = true;
+        UserName = inputTextManager.User1NameText;
     }
 
     // Update is called once per frame

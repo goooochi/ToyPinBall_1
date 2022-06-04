@@ -19,9 +19,13 @@ public class ResultViewController : MonoBehaviour
         {
             winnerText.text = $"{InputTextManager.instance.User1NameText.text} is Win!";
         }
-        else
+        else if(GameManager.scoreUser1 < GameManager.scoreUser2)
         {
             winnerText.text = $"{InputTextManager.instance.User2NameText.text} is Win!";
+        }
+        else
+        {
+            winnerText.text = "Draw!";
         }
     }
 

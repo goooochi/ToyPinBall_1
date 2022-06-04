@@ -86,21 +86,25 @@ public class SceneController : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Result")
         {
+            Debug.Log("YUKi");
             //spaceキーを押したら
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                ToMain();
-
+                ToTitle();
             }
         }
 
     }
 
-
     public void ToMain()
     {
         //Mainシーンに移動する
         SceneManager.LoadScene("1-1");
+    }
+
+    public void ToTitle()
+    {
+        SceneManager.LoadScene("Title");
     }
 
     public void ToNext()
@@ -114,4 +118,5 @@ public class SceneController : MonoBehaviour
         //Resultシーンに移動する
         SceneManager.LoadScene("Result");
     }
+
 }

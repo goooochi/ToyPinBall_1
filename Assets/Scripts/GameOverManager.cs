@@ -6,15 +6,36 @@ using UnityEngine;
 public class GameOverManager : MonoBehaviour
 {
 
+    public static GameOverManager gameOverManager;
+
+
+
+    //
+    static GameManager gameManager;
+    //
+
     //Outの実装
     public GameObject Out1;
     public GameObject Out2;
 
     public int outCount = 0;
 
+    public static int sceneCount = 1;
+
     //public GameObject Ball;
 
-    public GameManager gameManager;
+    //public GameManager gameManager;
+    public SceneController sceneController;
+    
+
+    public void Awake()
+    {
+        if (gameOverManager == null)
+        {
+            gameOverManager = this;
+        }
+
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -35,8 +56,14 @@ public class GameOverManager : MonoBehaviour
             Out2.SetActive(true);
         }else if(outCount == 3)
         {
-            gameManager.turnEndText.text = "交代！";
-            
+            GameManager.instance.turnEndText.text = "交代！";
+            if (GameManager.instance.isPlaying)
+            {
+                sceneCount++;
+                Debug.Log(sceneCount.ToString());
+                GameManager.instance.isPlaying = false;
+            }
+
         }
     }
 
@@ -47,7 +74,7 @@ public class GameOverManager : MonoBehaviour
             outCount++;
             if(outCount <= 2)
             {
-                gameManager.BallInstantiate();
+                GameManager.instance.BallInstantiate();
             }
         }
         Destroy(collision.gameObject);

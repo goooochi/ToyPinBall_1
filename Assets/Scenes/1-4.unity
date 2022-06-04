@@ -442,7 +442,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 145058119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 120, y: -0, z: 86.60659}
+  m_LocalPosition: {x: 135.75, y: 0, z: 86.60659}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children: []
   m_Father: {fileID: 0}
@@ -712,7 +712,7 @@ MonoBehaviour:
   Out1: {fileID: 432791570}
   Out2: {fileID: 145058119}
   outCount: 0
-  gameManager: {fileID: 1509558612}
+  sceneController: {fileID: 0}
 --- !u!1 &321619882 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1011398806584558012, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
@@ -1160,7 +1160,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432791570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 108.600006, y: -0.24999964, z: 86.60659}
+  m_LocalPosition: {x: 124.350006, y: -0.24999964, z: 86.60659}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1951,7 +1951,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1509558612}
-  hitScore: 3000
+  User1hitScore: 0
+  User2hitScore: 3000
 --- !u!1 &970368172
 GameObject:
   m_ObjectHideFlags: 0
@@ -2061,7 +2062,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1509558612}
-  hitScore: 2000
+  User1hitScore: 0
+  User2hitScore: 2000
 --- !u!1001 &975157311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2576,7 +2578,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1509558612}
-  hitScore: 10000
+  User1hitScore: 0
+  User2hitScore: 10000
 --- !u!1 &1225112758 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1011398806584558012, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
@@ -2886,7 +2889,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1509558612}
-  hitScore: 1000
+  User1hitScore: 0
+  User2hitScore: 1000
 --- !u!65 &1474191647
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2998,7 +3002,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 556755031}
-  score: 0
   turnEndText: {fileID: 214916965}
   Ball: {fileID: 8581881806879518571, guid: 77a6148de5b4149b1812e03cd24bcfb8, type: 3}
   UserName: {fileID: 1960662510}
@@ -3151,7 +3154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1509558612}
-  hitScore: 2000
+  User1hitScore: 0
+  User2hitScore: 2000
 --- !u!1 &1624264382
 GameObject:
   m_ObjectHideFlags: 0
@@ -3364,7 +3368,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1509558612}
-  hitScore: 3000
+  User1hitScore: 0
+  User2hitScore: 3000
 --- !u!1 &1771213554
 GameObject:
   m_ObjectHideFlags: 0
@@ -3507,7 +3512,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1509558612}
-  hitScore: 1000
+  User1hitScore: 0
+  User2hitScore: 1000
 --- !u!65 &1816974431
 BoxCollider:
   m_ObjectHideFlags: 0

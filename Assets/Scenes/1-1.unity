@@ -442,7 +442,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 145058119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 142.7, y: -0.6, z: 86.60659}
+  m_LocalPosition: {x: 120, y: -0, z: 86.60659}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children: []
   m_Father: {fileID: 0}
@@ -968,7 +968,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.99999994, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.4894192, y: 1.0234346, z: 0.013859199}
+  m_ConnectedAnchor: {x: 0.48941895, y: 1.0234349, z: 0.0138613}
   m_UseSpring: 1
   m_Spring:
     spring: 40000
@@ -1160,7 +1160,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432791570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 131.3, y: -0.84999967, z: 86.60659}
+  m_LocalPosition: {x: 108.600006, y: -0.24999964, z: 86.60659}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1279,7 +1279,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 484, y: 203}
+  m_AnchoredPosition: {x: 390, y: 203}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &556755031
@@ -1738,8 +1738,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920119845}
-  m_LocalRotation: {x: -0.18015864, y: -0.3459692, z: 0.060499657, w: 0.9187971}
-  m_LocalPosition: {x: 3.0592108, y: -3.3843174, z: 2.175992}
+  m_LocalRotation: {x: -0.19332118, y: -0.3362264, z: 0.070719406, w: 0.919009}
+  m_LocalPosition: {x: -0.4, y: -3.7, z: 2.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 333710628}
@@ -1758,7 +1758,7 @@ Transform:
   - {fileID: 1206878260}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -16.81, y: -43.385, z: 14.262}
+  m_LocalEulerAnglesHint: {x: -17.925, y: -42.708, z: 15.858}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,7 +2315,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.9999994, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.5382206, y: 1.0238948, z: 0.01571123}
+  m_ConnectedAnchor: {x: -0.5382204, y: 1.0238949, z: 0.015710834}
   m_UseSpring: 1
   m_Spring:
     spring: 40000
@@ -3636,7 +3636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 484, y: 203}
+  m_AnchoredPosition: {x: 425, y: 269}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1960662510
@@ -3661,7 +3661,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 44
+    m_FontSize: 33
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -3672,7 +3672,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score : '
+  m_Text: "\u304C\u30D7\u30EC\u30A4\u4E2D"
 --- !u!222 &1960662511
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3715,7 +3715,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 486, y: 130}
+  m_AnchoredPosition: {x: 393, y: 130}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2064013599

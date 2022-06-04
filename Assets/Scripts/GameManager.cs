@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     public Text scoreText;
 
-    InputTextManager inputTextManager;
+    static InputTextManager inputTextManager;
 
     public int score;
 
@@ -25,9 +25,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         score = 0;
-        Instantiate(Ball, new Vector3(-7, -3, 1), Quaternion.identity);
+        Instantiate(Ball, new Vector3(-7, -4, 1), Quaternion.identity);
         isPlaying = true;
-        UserName = inputTextManager.User1NameText;
+        UserName.text = InputTextManager.instance.User1NameText.text + "がプレイ中！";
     }
 
     // Update is called once per frame
@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
     public void BallInstantiate()
     {
         int position = Random.Range(-2, 15);
-        Instantiate(Ball, new Vector3(position, -4, 0), Quaternion.identity);
+        Instantiate(Ball, new Vector3(position, -4, 1), Quaternion.identity);
     }
 }
+
+

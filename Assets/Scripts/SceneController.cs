@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    InputTextManager inputTextManager;
+    static InputTextManager inputTextManager;
 
     // Start is called before the first frame update
     void Start()
@@ -19,14 +19,16 @@ public class SceneController : MonoBehaviour
         //シーンの名前がTitleならば
         if (SceneManager.GetActiveScene().name == "Title")
         {
-            if(inputTextManager.Prepare1 == true)
+            if(InputTextManager.instance.Prepare1 && InputTextManager.instance.Prepare2)
                 //spaceキーを押したら
                  if (Input.GetKeyDown(KeyCode.Space))
                  {
                    ToMain();
-
                  }
-            }
+        }
+
+       
+
 
         //if (SceneManager.GetActiveScene().name == "Result")
         //{
@@ -42,7 +44,7 @@ public class SceneController : MonoBehaviour
     public void ToMain()
     {
         //Mainシーンに移動する
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("1-1");
     }
 
     //public void ToResult()

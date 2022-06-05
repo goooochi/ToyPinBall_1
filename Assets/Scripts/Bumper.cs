@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class Bumper : MonoBehaviour
 {
-    private float power = 550.0f;
+    private float power = 350.0f;
 
-    
+    ////
+    //Rigidbody rigid;
+    //float speed;
+    ////
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +21,13 @@ public class Bumper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
+
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionStay(Collision other)
     {
-        
+
 
         // 今回はタグでプレイヤーかどうか判断
         if (other.transform.CompareTag("Ball"))
@@ -32,11 +38,10 @@ public class Bumper : MonoBehaviour
             Debug.Log(playerRigid.velocity.magnitude.ToString());
 
             
-                // プレイヤーのリジッドボディに、現在の進行方向の逆向きに力を加える
-                playerRigid.AddForce(-playerRigid.velocity * power);
+            // プレイヤーのリジッドボディに、現在の進行方向の逆向きに力を加える
+            playerRigid.AddForce(-playerRigid.velocity * power);
             
-
-
+            
         }
     }
 }

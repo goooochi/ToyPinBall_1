@@ -41,11 +41,11 @@ public class GameManager : MonoBehaviour
         Instantiate(Ball, new Vector3(-7, -4, 1), Quaternion.identity);
         if (SceneManager.GetActiveScene().name == "1-1" || SceneManager.GetActiveScene().name == "1-3" || SceneManager.GetActiveScene().name == "1-5")
         {
-            UserName.text = InputTextManager.instance.User1NameText.text + "がプレイ中！";
+            UserName.text = InputTextManager.instance.User1NameText.text + " がプレイ中！";
         }
         else
         {
-            UserName.text = InputTextManager.instance.User2NameText.text + "がプレイ中！";
+            UserName.text = InputTextManager.instance.User2NameText.text + " がプレイ中！";
         }
         
     }
@@ -55,11 +55,11 @@ public class GameManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "1-1" || SceneManager.GetActiveScene().name == "1-3" || SceneManager.GetActiveScene().name == "1-5")
         {
-            scoreText.text = "Score : " + scoreUser1.ToString("f0");
+            scoreText.text = "Score :  " + scoreUser1.ToString("f0");
         }
         else
         {
-            scoreText.text = "Score : " + scoreUser2.ToString("f0");
+            scoreText.text = "Score :  " + scoreUser2.ToString("f0");
         }
         
     }

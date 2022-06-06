@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public GameObject Ball;
     public Text UserName;
     public bool isPlaying;
+    int instantiateNumber_1;
+    int instantiateNumber_2;
 
     //
     public void Awake()
@@ -37,8 +39,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        Instantiate(Ball, new Vector3(-7, -4, 1), Quaternion.identity);
+
+        Instantiate(Ball, new Vector3(-10, 5, 9), Quaternion.identity);
         if (SceneManager.GetActiveScene().name == "1-1" || SceneManager.GetActiveScene().name == "1-3" || SceneManager.GetActiveScene().name == "1-5")
         {
             UserName.text = InputTextManager.instance.User1NameText.text + " がプレイ中！";
@@ -47,7 +49,7 @@ public class GameManager : MonoBehaviour
         {
             UserName.text = InputTextManager.instance.User2NameText.text + " がプレイ中！";
         }
-        
+
     }
 
     // Update is called once per frame
@@ -61,14 +63,29 @@ public class GameManager : MonoBehaviour
         {
             scoreText.text = "Score :  " + scoreUser2.ToString("f0");
         }
-        
+
     }
 
     public void BallInstantiate()
     {
-        int position = Random.Range(-2, 10);
-        Instantiate(Ball, new Vector3(position, -4, 1), Quaternion.identity);
+        instantiateNumber_1 = Random.Range(-11, -7);
+        instantiateNumber_2 = Random.Range(3, 8);
+        float halfRandom = Random.Range(-2, 2);
+        Debug.Log("instantiateNumber_1 is " + instantiateNumber_1);
+        Debug.Log("instantiateNumber_2 is " + instantiateNumber_2);
+        Debug.Log("halfRandom is " + halfRandom);
+
+        if (halfRandom >= 0)
+        {
+            
+            Instantiate(Ball, new Vector3(instantiateNumber_1, 5, 9), Quaternion.identity);
+        }
+        else
+        {
+            
+            Instantiate(Ball, new Vector3(instantiateNumber_2, 5, 9), Quaternion.identity);
+
+        }
     }
 }
-
 

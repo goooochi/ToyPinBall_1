@@ -25,7 +25,7 @@ public class Bumper : MonoBehaviour
 
     }
 
-    private void OnCollisionStay(Collision other)
+    void OnCollisionEnter(Collision other)
     {
 
 
@@ -37,11 +37,17 @@ public class Bumper : MonoBehaviour
 
             Debug.Log(playerRigid.velocity.magnitude.ToString());
 
-            
+            if(playerRigid.velocity.magnitude < 2.0f)
+            {
+                playerRigid.AddForce(-playerRigid.velocity * power * 5);
+            }
+            else
+            {
+                playerRigid.AddForce(-playerRigid.velocity * power);
+            }
             // プレイヤーのリジッドボディに、現在の進行方向の逆向きに力を加える
-            playerRigid.AddForce(-playerRigid.velocity * power);
             
-            
+
         }
     }
 }

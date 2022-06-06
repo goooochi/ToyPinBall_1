@@ -547,6 +547,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1522036679}
     m_Modifications:
+    - target: {fileID: 643788018895905217, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1011398806584558012, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
       propertyPath: m_Name
       value: Sphere (1)
@@ -2463,6 +2467,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1522036679}
     m_Modifications:
+    - target: {fileID: 643788018895905217, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1011398806584558012, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
       propertyPath: m_Name
       value: Sphere (2)
@@ -3469,7 +3477,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1771213554}
   m_LocalRotation: {x: -0.17485932, y: 0.34294042, z: 0.060930915, w: 0.92092544}
-  m_LocalPosition: {x: 9.3, y: 7.1, z: 10.6}
+  m_LocalPosition: {x: 9.2, y: 7.5, z: 10.48}
   m_LocalScale: {x: 70, y: 0.5, z: 60}
   m_Children: []
   m_Father: {fileID: 920119846}

@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5372904150654154486, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 8581881806879518571, guid: 77a6148de5b4149b1812e03cd24bcfb8, type: 3}
     - target: {fileID: 5548681152229939089, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -543,10 +547,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1522036679}
     m_Modifications:
+    - target: {fileID: 643788018895905217, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1011398806584558012, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
       propertyPath: m_Name
       value: Sphere (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5372904150654154486, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 8581881806879518571, guid: 77a6148de5b4149b1812e03cd24bcfb8, type: 3}
     - target: {fileID: 5548681152229939089, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1185,6 +1197,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5372904150654154486, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 8581881806879518571, guid: 77a6148de5b4149b1812e03cd24bcfb8, type: 3}
     - target: {fileID: 5548681152229939089, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1315,8 +1331,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a42b22f6276ae44388cce20e8a8dcad3, type: 3}
-    m_FontSize: 23
+    m_Font: {fileID: 12800000, guid: 585188cdc4600544eb408bee749e4b3a, type: 3}
+    m_FontSize: 34
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1379,6 +1395,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5372904150654154486, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 8581881806879518571, guid: 77a6148de5b4149b1812e03cd24bcfb8, type: 3}
     - target: {fileID: 5548681152229939089, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1673,6 +1693,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5372904150654154486, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 8581881806879518571, guid: 77a6148de5b4149b1812e03cd24bcfb8, type: 3}
     - target: {fileID: 5548681152229939089, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2095,6 +2119,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5372904150654154486, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 8581881806879518571, guid: 77a6148de5b4149b1812e03cd24bcfb8, type: 3}
     - target: {fileID: 5548681152229939089, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2168,6 +2196,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5372904150654154486, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 8581881806879518571, guid: 77a6148de5b4149b1812e03cd24bcfb8, type: 3}
     - target: {fileID: 5548681152229939089, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2435,10 +2467,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1522036679}
     m_Modifications:
+    - target: {fileID: 643788018895905217, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1011398806584558012, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
       propertyPath: m_Name
       value: Sphere (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5372904150654154486, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 8581881806879518571, guid: 77a6148de5b4149b1812e03cd24bcfb8, type: 3}
     - target: {fileID: 5548681152229939089, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2811,6 +2851,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5372904150654154486, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 8581881806879518571, guid: 77a6148de5b4149b1812e03cd24bcfb8, type: 3}
     - target: {fileID: 5548681152229939089, guid: 58a5f923375e044078f32fb4cd104fc9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3702,8 +3746,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 24
+    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -3714,7 +3758,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u304C\u30D7\u30EC\u30A4\u4E2D"
+  m_Text: is Playing!
 --- !u!222 &1960662511
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3781,8 +3825,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a42b22f6276ae44388cce20e8a8dcad3, type: 3}
-    m_FontSize: 25
+    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
+    m_FontSize: 37
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -3793,7 +3837,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'OUT  : '
+  m_Text: 'OUT :  '
 --- !u!222 &2064013600
 CanvasRenderer:
   m_ObjectHideFlags: 0

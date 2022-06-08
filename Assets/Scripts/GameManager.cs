@@ -43,11 +43,11 @@ public class GameManager : MonoBehaviour
         Instantiate(Ball, new Vector3(-10, 5, 9), Quaternion.identity);
         if (SceneManager.GetActiveScene().name == "1-1" || SceneManager.GetActiveScene().name == "1-3" || SceneManager.GetActiveScene().name == "1-5")
         {
-            UserName.text = InputTextManager.instance.User1NameText.text + " がプレイ中！";
+            UserName.text = InputTextManager.instance.User1NameText.text + " is Playing!";
         }
         else
         {
-            UserName.text = InputTextManager.instance.User2NameText.text + " がプレイ中！";
+            UserName.text = InputTextManager.instance.User2NameText.text + " is Playing!";
         }
 
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bumper : MonoBehaviour
 {
-    private float power = 350.0f;
+    private float power = 200.0f;
 
     //アニメーション
     Animator animator;

@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     int instantiateNumber_1;
     int instantiateNumber_2;
 
+    
+
     //
     public void Awake()
     {

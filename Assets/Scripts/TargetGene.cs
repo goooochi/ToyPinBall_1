@@ -15,6 +15,6 @@ public class TargetGene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(Mathf.Sin(Time.time) * 3.0f + targetpos.x, targetpos.y, targetpos.z);
+        transform.position = new Vector3(targetpos.x, -Mathf.Sin(Time.time) * 4.0f + targetpos.y, -Mathf.Sin(Time.time) * 4.0f + targetpos.z);
     }
 }

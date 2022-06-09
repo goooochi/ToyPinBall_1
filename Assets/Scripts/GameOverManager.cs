@@ -22,11 +22,11 @@ public class GameOverManager : MonoBehaviour
 
     public static int sceneCount = 1;
 
-    //public GameObject Ball;
-
-    //public GameManager gameManager;
-    public SceneController sceneController;
     
+    public AudioClip BGM;
+    AudioSource Audio;
+
+
 
     public void Awake()
     {
@@ -42,6 +42,10 @@ public class GameOverManager : MonoBehaviour
     {
         Out1.SetActive(false);
         Out2.SetActive(false);
+
+        //このスクリプトがアタッチされたオブジェクトに付与されているAudioSourceコンポーネントを認識させる
+        Audio = GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
@@ -69,6 +73,7 @@ public class GameOverManager : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
+        Audio.PlayOneShot(BGM);
         if (collision.gameObject.tag == "Ball")
         {
             outCount++;

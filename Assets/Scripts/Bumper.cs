@@ -6,16 +6,18 @@ public class Bumper : MonoBehaviour
 {
     private float power = 350.0f;
 
-    ////
-    //Rigidbody rigid;
-    //float speed;
-    ////
+    //アニメーション
+    Animator animator;
+    //上半身のコライダー用
+    GameObject headCollider;
 
+    Rigidbody playerRigidbody;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
+        playerRigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -46,8 +48,14 @@ public class Bumper : MonoBehaviour
                 playerRigid.AddForce(-playerRigid.velocity * power);
             }
             // プレイヤーのリジッドボディに、現在の進行方向の逆向きに力を加える
-            
 
+            animator.SetBool("Attack", true);
+            Invoke("turnFalse", 1.0f);
         }
+    }
+
+    public void turnFalse()
+    {
+        animator.SetBool("Attack", false);
     }
 }

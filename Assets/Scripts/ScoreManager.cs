@@ -14,10 +14,15 @@ public class ScoreManager : MonoBehaviour
 
     public Text scoreInformationText;
 
+    public AudioClip ScoreUpBGM;
+    public AudioClip HomeRunBGM;
+    AudioSource Audio;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        //このスクリプトがアタッチされたオブジェクトに付与されているAudioSourceコンポーネントを認識させる
+        Audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -35,22 +40,26 @@ public class ScoreManager : MonoBehaviour
 
             if(User1hitScore == 1000)
             {
-                scoreInformationText.text = "Base Hit!";
+                Audio.PlayOneShot(ScoreUpBGM);
+                scoreInformationText.text = "BaseHit!";
                 Invoke("TextHide", 1.0f);
             }
             else if(User1hitScore == 2000)
             {
-                scoreInformationText.text = "Two Base Hit!!";
+                Audio.PlayOneShot(ScoreUpBGM);
+                scoreInformationText.text = "TwoBaseHit!!";
                 Invoke("TextHide", 1.0f);
             }
             else if(User1hitScore == 3000)
             {
-                scoreInformationText.text = "Three Base Hit!!!";
+                Audio.PlayOneShot(ScoreUpBGM);
+                scoreInformationText.text = "ThreeBaseHit!!!";
                 Invoke("TextHide", 1.0f);
             }
             else
             {
-                scoreInformationText.text = "Home Run!!!!";
+                Audio.PlayOneShot(HomeRunBGM);
+                scoreInformationText.text = "HomeRun!!!!";
                 Invoke("TextHide", 1.0f);
             }
         }
@@ -59,23 +68,27 @@ public class ScoreManager : MonoBehaviour
             //GameManager側にて、score宣言時にpublicがついているからできること
             GameManager.scoreUser2 += User2hitScore;
 
-            if (User1hitScore == 1000)
+            if (User2hitScore == 1000)
             {
+                Audio.PlayOneShot(ScoreUpBGM);
                 scoreInformationText.text = "Base Hit!";
                 Invoke("TextHide", 1.0f);
             }
-            else if (User1hitScore == 2000)
+            else if (User2hitScore == 2000)
             {
+                Audio.PlayOneShot(ScoreUpBGM);
                 scoreInformationText.text = "Two Base Hit!!";
                 Invoke("TextHide", 1.0f);
             }
-            else if (User1hitScore == 3000)
+            else if (User2hitScore == 3000)
             {
+                Audio.PlayOneShot(ScoreUpBGM);
                 scoreInformationText.text = "Three Base Hit!!!";
                 Invoke("TextHide", 1.0f);
             }
             else
             {
+                Audio.PlayOneShot(HomeRunBGM);
                 scoreInformationText.text = "Home Run!!!!";
                 Invoke("TextHide", 1.0f);
             }

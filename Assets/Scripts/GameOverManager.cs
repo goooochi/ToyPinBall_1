@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using 
+using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
@@ -60,7 +60,15 @@ public class GameOverManager : MonoBehaviour
             Out2.SetActive(true);
         }else if(outCount == 3)
         {
-            GameManager.instance.turnEndText.text = "交代！";
+            if (SceneManager.GetActiveScene().name == "1-6")
+            {
+                GameManager.instance.turnEndText.text = "Finish!";
+            }
+            else
+            {
+                GameManager.instance.turnEndText.text = "Change!";
+            }
+            
             if (GameManager.instance.isPlaying)
             {
                 sceneCount++;

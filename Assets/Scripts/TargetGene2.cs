@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityStandardAssets.CrossPlatformInput;
-//using UnityStandardAssets.Vehicles.Car;
+using UnityEngine.SceneManagement;
+
 
 
 public class TargetGene2 : MonoBehaviour
@@ -10,26 +10,15 @@ public class TargetGene2 : MonoBehaviour
     public Vector3 targetpos;
     public float slideSpeed = 10.0f;
 
-
-
-    //public float time = 0.0f;
-
-    //float vertical;
-
-    //public int thisMovableBumperID;
-
     // Start is called before the first frame update
     void Start()
     {
-        //targetpos = this.transform.position;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        //float posY = transform.position.y;
-        //float posZ = transform.position.z;
 
         if (Input.GetKey(KeyCode.S))
         {
@@ -48,16 +37,20 @@ public class TargetGene2 : MonoBehaviour
         }
     }
 
-    //public float Abs(float number)
-    //{
-    //    if (number < 0)
-    //    {
-    //        return number * -1;
-    //    }
-    //    else
-    //    {
-    //        return number;
-    //    }
-    //}
-
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.transform.CompareTag("Ball"))
+        {
+            if (SceneManager.GetActiveScene().name == "1-1" || SceneManager.GetActiveScene().name == "1-3" || SceneManager.GetActiveScene().name == "1-5")
+            {
+                Debug.Log("あたったよ");
+                GameManager.scoreUser2 += 500;
+            }
+            else
+            {
+                Debug.Log("あたったよ");
+                GameManager.scoreUser1 += 500;
+            }
+        }
+    }
 }

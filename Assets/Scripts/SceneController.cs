@@ -86,7 +86,6 @@ public class SceneController : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Result")
         {
-            Debug.Log("YUKi");
             //spaceキーを押したら
             if (Input.GetKeyDown(KeyCode.Space))
             {

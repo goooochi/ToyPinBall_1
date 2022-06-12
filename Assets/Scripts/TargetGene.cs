@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
-using UnityStandardAssets.Vehicles.Car;
+using UnityEngine.SceneManagement;
 
 public class TargetGene : MonoBehaviour
 {
@@ -35,5 +34,22 @@ public class TargetGene : MonoBehaviour
             }
         }
 
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.transform.CompareTag("Ball"))
+        {
+            if (SceneManager.GetActiveScene().name == "1-1" || SceneManager.GetActiveScene().name == "1-3" || SceneManager.GetActiveScene().name == "1-5")
+            {
+                Debug.Log("あたったよ");
+                GameManager.scoreUser2 += 500;
+            }
+            else
+            {
+                Debug.Log("あたったよ");
+                GameManager.scoreUser1 += 500;
+            }
+        }
     }
 }

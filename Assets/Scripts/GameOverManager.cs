@@ -72,7 +72,6 @@ public class GameOverManager : MonoBehaviour
             if (GameManager.instance.isPlaying)
             {
                 sceneCount++;
-                Debug.Log(sceneCount.ToString());
                 GameManager.instance.isPlaying = false;
             }
 

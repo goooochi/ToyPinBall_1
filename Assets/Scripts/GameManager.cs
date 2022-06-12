@@ -73,9 +73,7 @@ public class GameManager : MonoBehaviour
         instantiateNumber_1 = Random.Range(-11, -7);
         instantiateNumber_2 = Random.Range(3, 8);
         float halfRandom = Random.Range(-2, 2);
-        Debug.Log("instantiateNumber_1 is " + instantiateNumber_1);
-        Debug.Log("instantiateNumber_2 is " + instantiateNumber_2);
-        Debug.Log("halfRandom is " + halfRandom);
+        
 
         if (halfRandom >= 0)
         {

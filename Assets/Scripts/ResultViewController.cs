@@ -11,6 +11,7 @@ public class ResultViewController : MonoBehaviour
 
     public Text winnerText;
 
+    public Text scoreResltText;
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +19,12 @@ public class ResultViewController : MonoBehaviour
         if(GameManager.scoreUser1 > GameManager.scoreUser2)
         {
             winnerText.text = $"{InputTextManager.instance.User1NameText.text} is Win!";
+            scoreResltText.text = $"Score :{GameManager.scoreUser1}";
         }
         else if(GameManager.scoreUser1 < GameManager.scoreUser2)
         {
             winnerText.text = $"{InputTextManager.instance.User2NameText.text} is Win!";
+            scoreResltText.text = $"Score : {GameManager.scoreUser2}";
         }
         else
         {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Bumper : MonoBehaviour
 {
     private float power = 200.0f;
@@ -12,6 +13,8 @@ public class Bumper : MonoBehaviour
     GameObject headCollider;
 
     Rigidbody playerRigidbody;
+
+    public GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +32,7 @@ public class Bumper : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-
-
+        
         // 今回はタグでプレイヤーかどうか判断
         if (other.transform.CompareTag("Ball"))
         {
@@ -47,10 +49,10 @@ public class Bumper : MonoBehaviour
             {
                 playerRigid.AddForce(-playerRigid.velocity * power);
             }
-            // プレイヤーのリジッドボディに、現在の進行方向の逆向きに力を加える
-
+            
             animator.SetBool("Attack", true);
             Invoke("turnFalse", 1.0f);
+  
         }
     }
 

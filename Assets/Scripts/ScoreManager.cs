@@ -72,25 +72,25 @@ public class ScoreManager : MonoBehaviour
             {
                 Audio.PlayOneShot(ScoreUpBGM);
                 scoreInformationText.text = "Base Hit!";
-                Invoke("TextHide", 1.0f);
+                Invoke("TextHide", 2.0f);
             }
             else if (User2hitScore == 2000)
             {
                 Audio.PlayOneShot(ScoreUpBGM);
                 scoreInformationText.text = "Two Base Hit!!";
-                Invoke("TextHide", 1.0f);
+                Invoke("TextHide", 2.0f);
             }
             else if (User2hitScore == 3000)
             {
                 Audio.PlayOneShot(ScoreUpBGM);
                 scoreInformationText.text = "Three Base Hit!!!";
-                Invoke("TextHide", 1.0f);
+                Invoke("TextHide", 2.0f);
             }
             else
             {
                 Audio.PlayOneShot(HomeRunBGM);
                 scoreInformationText.text = "Home Run!!!!";
-                Invoke("TextHide", 1.0f);
+                Invoke("TextHide", 2.0f);
             }
         }
             

@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
     public bool isPlaying;
     int instantiateNumber_1;
     int instantiateNumber_2;
+    public int isCatchCount;
 
-    
 
     //
     public void Awake()
@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
         }
 
         isPlaying = true;
+        isCatchCount = 0;
     }
     //
 

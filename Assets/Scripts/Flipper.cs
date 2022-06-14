@@ -42,7 +42,6 @@ public class Flipper : MonoBehaviour
             jL.targetPosition = openAngle;
             hjL.spring = jL;
 
-            
         }
         // 左クリックを離す
         if (Input.GetKeyUp(KeyCode.LeftArrow))

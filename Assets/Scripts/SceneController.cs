@@ -23,10 +23,19 @@ public class SceneController : MonoBehaviour
         {
             if (InputTextManager.instance.Prepare1 && InputTextManager.instance.Prepare2)
                 //spaceキーを押したら
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Return))
                 {
-                    ToMain();
+                    ToExplain();
+                    //ToMain();
                 }
+        }
+
+        if(SceneManager.GetActiveScene().name == "OperationExplanation")
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                ToMain();
+            }
         }
 
         if (SceneManager.GetActiveScene().name == "1-1")
@@ -87,9 +96,14 @@ public class SceneController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Result")
         {
             //spaceキーを押したら
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Return))
             {
                 ToTitle();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                ToRannking();
             }
         }
 
@@ -101,9 +115,20 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("1-1");
     }
 
+    public void ToExplain()
+    {
+        //Mainシーンに移動する
+        SceneManager.LoadScene("OperationExplanation");
+    }
+
     public void ToTitle()
     {
         SceneManager.LoadScene("Title");
+    }
+
+    public void ToRannking()
+    {
+        SceneManager.LoadScene("Ranking");
     }
 
     public void ToNext()

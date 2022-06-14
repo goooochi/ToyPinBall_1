@@ -8,11 +8,8 @@ public class GameOverManager : MonoBehaviour
 
     public static GameOverManager gameOverManager;
 
-
-
-    //
     static GameManager gameManager;
-    //
+
 
     //Outの実装
     public GameObject Out1;
@@ -45,7 +42,7 @@ public class GameOverManager : MonoBehaviour
 
         //このスクリプトがアタッチされたオブジェクトに付与されているAudioSourceコンポーネントを認識させる
         Audio = GetComponent<AudioSource>();
-        
+
     }
 
     // Update is called once per frame
@@ -68,9 +65,11 @@ public class GameOverManager : MonoBehaviour
             {
                 GameManager.instance.turnEndText.text = "Change!";
             }
-            
+
+
             if (GameManager.instance.isPlaying)
             {
+                Debug.Log("なんで");
                 sceneCount++;
                 GameManager.instance.isPlaying = false;
             }
@@ -87,6 +86,7 @@ public class GameOverManager : MonoBehaviour
             if(outCount <= 2)
             {
                 GameManager.instance.BallInstantiate();
+                GameManager.instance.isCatchCount = 0;
             }
         }
         Destroy(collision.gameObject);

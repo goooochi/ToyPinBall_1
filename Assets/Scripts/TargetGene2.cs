@@ -22,7 +22,7 @@ public class TargetGene2 : MonoBehaviour
 
         if (Input.GetKey(KeyCode.S))
         {
-            if (transform.position.y >= 10.0)
+            if (transform.position.y >= 8.0)
             {
                 transform.position += new Vector3(0, -slideSpeed, -slideSpeed) * Time.deltaTime;
             }
@@ -30,7 +30,7 @@ public class TargetGene2 : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            if (transform.position.y <= 21.0)
+            if (transform.position.y <= 17.0)
             {
                 transform.position -= new Vector3(0, -slideSpeed, -slideSpeed) * Time.deltaTime;
             }

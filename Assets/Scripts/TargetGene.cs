@@ -20,7 +20,7 @@ public class TargetGene : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.S))
         {
-            if (transform.position.y >= 10.0)
+            if (transform.position.y >= 8.0)
             {
                 transform.position += new Vector3(0, -slideSpeed, -slideSpeed) * Time.deltaTime;
             }
@@ -28,7 +28,7 @@ public class TargetGene : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            if (transform.position.y <= 21.0)
+            if (transform.position.y <= 17.0)
             {
                 transform.position -= new Vector3(0, -slideSpeed, -slideSpeed) * Time.deltaTime;
             }
@@ -42,12 +42,10 @@ public class TargetGene : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().name == "1-1" || SceneManager.GetActiveScene().name == "1-3" || SceneManager.GetActiveScene().name == "1-5")
             {
-                Debug.Log("あたったよ");
                 GameManager.scoreUser2 += 500;
             }
             else
             {
-                Debug.Log("あたったよ");
                 GameManager.scoreUser1 += 500;
             }
         }

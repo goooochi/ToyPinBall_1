@@ -57,16 +57,13 @@ public class ResultViewController : MonoBehaviour
             isLook = false;
         }
 
-
-
-
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    //void Update()
+    //{
         
-    }
+    //}
 
 
 }

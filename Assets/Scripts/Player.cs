@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
 
-    public GameManager gameManager;
-
     private float power = 10.0f;
 
     float LeftforceAngle = -1.5f;
@@ -26,11 +24,11 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    //void Update()
+    //{
         //Rigidbody playerRigid = transform.GetComponent<Rigidbody>();
         //playerRigid.AddForce(playerRigid.velocity);
-    }
+    //}
 
     public void OnCollisionStay(Collision collision)
     {

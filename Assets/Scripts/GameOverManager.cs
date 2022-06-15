@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameOverManager : MonoBehaviour
 {
 
-    public static GameOverManager gameOverManager;
+    public static GameOverManager instance;
 
     static GameManager gameManager;
 
@@ -15,7 +15,7 @@ public class GameOverManager : MonoBehaviour
     public GameObject Out2;
     public int outCount = 0;
     public static int sceneCount = 1;
-    //public bool TwoBalls;
+    public bool TwoBalls;
 
     public AudioClip BGM;
     AudioSource Audio;
@@ -23,9 +23,9 @@ public class GameOverManager : MonoBehaviour
 
     public void Awake()
     {
-        if (gameOverManager == null)
+        if (instance == null)
         {
-            gameOverManager = this;
+            instance = this;
         }
 
     }
@@ -83,28 +83,27 @@ public class GameOverManager : MonoBehaviour
         Audio.PlayOneShot(BGM);
         if (collision.gameObject.tag == "Ball")
         {
-            //if (TwoBalls)
-            //{
-
-
-            //}
-            //else
-            //{
-            //    outCount++;
-            //}
-
-            outCount++;
-            if (outCount <= 2)
+            if (TwoBalls)
             {
-                SliderController.instance.slider.gameObject.SetActive(true);
-                SliderController.instance.isClicked = false;
-                SliderController.instance.SecondClickLock = false;
-                Debug.Log("SecondClickLock変えたよ");
-                //GameManager.instance.BallInstantiate();
-                GameManager.instance.isCatchCount = 0;
+                GameManager.instance.Scoreupball.tag = "Ball";
+                TwoBalls = false;
             }
-            Bumper.instance.Strike1.SetActive(false);
-            Bumper.instance.Strike2.SetActive(false);
+            else
+            {
+                outCount++;
+                if (outCount <= 2)
+                {
+                    SliderController.instance.slider.gameObject.SetActive(true);
+                    SliderController.instance.isClicked = false;
+                    SliderController.instance.SecondClickLock = false;
+                    Debug.Log("SecondClickLock変えたよ");
+                    //GameManager.instance.BallInstantiate();
+                    GameManager.instance.isCatchCount = 0;
+                }
+                Bumper.instance.Strike1.SetActive(false);
+                Bumper.instance.Strike2.SetActive(false);
+            }
+
         }
         Destroy(collision.gameObject);
         

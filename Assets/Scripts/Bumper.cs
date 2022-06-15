@@ -23,9 +23,8 @@ public class Bumper : MonoBehaviour
 
     public static Bumper instance;
     public GameManager gameManager;
-    static GameOverManager gameOverManager;
-    //public static SliderController sliderController;
-
+    public static GameOverManager gameOverManager;
+ 
     public AudioClip BGM;
     AudioSource Audio;
 
@@ -51,69 +50,16 @@ public class Bumper : MonoBehaviour
         Audio = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    //// Update is called once per frame
+    //void Update()
+    //{
         
-    }
+    //}
 
     void OnCollisionEnter(Collision other)
     {
-        
-
         // 今回はタグでプレイヤーかどうか判断
-        if (other.transform.CompareTag("Ball"))
-        {
-            // プレイヤーのリジッドボディを取得
-            Rigidbody playerRigid = other.transform.GetComponent<Rigidbody>();
-
-            if(playerRigid.velocity.magnitude < 4.5f)
-            {
-                vector = new Vector3(Random.Range(-3,4),0,0);
-                playerRigid.AddForce(-playerRigid.velocity * power * 6);
-                playerRigid.AddForce(vector * 400);
-            }
-            else
-            {
-                playerRigid.AddForce(-playerRigid.velocity * power);
-            }
-
-
-            GameManager.instance.isCatchCount += 1;
-            if (GameManager.instance.isCatchCount == 1)
-            {
-                Debug.Log("Strike1");
-                Strike1.SetActive(true);
-            }
-            else if (GameManager.instance.isCatchCount == 2)
-            {
-                Debug.Log("Strike2");
-                Strike2.SetActive(true);
-            }
-            else
-            {
-                Audio.PlayOneShot(BGM);
-                GameOverManager.gameOverManager.outCount++;
-                if (GameOverManager.gameOverManager.outCount <= 2)
-                {
-                    SliderController.instance.slider.gameObject.SetActive(true);
-                    SliderController.instance.isClicked = false;
-                    SliderController.instance.SecondClickLock = false;
-                    //GameManager.instance.BallInstantiate();
-                }
-
-                Destroy(other.gameObject);
-                Strike1.SetActive(false);
-                Strike2.SetActive(false);
-                GameManager.instance.isCatchCount = 0;
-            }
- 
-            animator.SetBool("Attack", true);
-            Invoke("turnFalse", 1.0f);
-            
-        }
-
-        if (other.transform.CompareTag("ScoreupBall"))
+        if (other.transform.CompareTag("Ball") || other.transform.CompareTag("ScoreupBall"))
         {
             // プレイヤーのリジッドボディを取得
             Rigidbody playerRigid = other.transform.GetComponent<Rigidbody>();
@@ -129,10 +75,49 @@ public class Bumper : MonoBehaviour
                 playerRigid.AddForce(-playerRigid.velocity * power);
             }
 
+
+
+            if (!GameOverManager.instance.TwoBalls)
+            {
+                GameManager.instance.isCatchCount += 1;
+                if (GameManager.instance.isCatchCount == 1)
+                {
+                    Debug.Log("Strike1");
+                    Strike1.SetActive(true);
+                }
+                else if (GameManager.instance.isCatchCount == 2)
+                {
+                    Debug.Log("Strike2");
+                    Strike2.SetActive(true);
+                }
+                else
+                {
+                    Audio.PlayOneShot(BGM);
+                    GameOverManager.instance.outCount++;
+                    if (GameOverManager.instance.outCount <= 2)
+                    {
+                        SliderController.instance.slider.gameObject.SetActive(true);
+                        SliderController.instance.isClicked = false;
+                        SliderController.instance.SecondClickLock = false;
+                        //GameManager.instance.BallInstantiate();
+                    }
+
+                    Destroy(other.gameObject);
+                    Strike1.SetActive(false);
+                    Strike2.SetActive(false);
+                    GameManager.instance.isCatchCount = 0;
+                }
+
+
+            }
+
             animator.SetBool("Attack", true);
             Invoke("turnFalse", 1.0f);
+
         }
-     }
+
+
+    }
 
     public void turnFalse()
     {

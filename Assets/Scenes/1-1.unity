@@ -5624,6 +5624,7 @@ MonoBehaviour:
   Out1: {fileID: 432791570}
   Out2: {fileID: 145058119}
   outCount: 0
+  TwoBalls: 0
   BGM: {fileID: 8300000, guid: 1df67fc24e2f547b38a36a8722be1645, type: 3}
 --- !u!82 &290601036
 AudioSource:
@@ -9724,6 +9725,7 @@ MonoBehaviour:
   Out1: {fileID: 432791570}
   Out2: {fileID: 145058119}
   outCount: 0
+  TwoBalls: 0
   BGM: {fileID: 8300000, guid: 1df67fc24e2f547b38a36a8722be1645, type: 3}
 --- !u!1 &861663692
 GameObject:
@@ -10371,11 +10373,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1509558612}
-  User1hitScore: 3000
-  User2hitScore: 0
+  UserhitScore: 3000
   scoreInformationText: {fileID: 1769982742}
-  ScoreUpBGM: {fileID: 8300000, guid: 9864fcb4c7eb843d19f3f76343d0dda8, type: 3}
+  ScoreUpBGM: {fileID: 8300000, guid: 10b8883c8d3be464381f1c558958383e, type: 3}
   HomeRunBGM: {fileID: 0}
+  isFever: 0
 --- !u!82 &968756549
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10484,8 +10486,8 @@ GameObject:
   - component: {fileID: 970368175}
   - component: {fileID: 970368174}
   - component: {fileID: 970368173}
-  - component: {fileID: 970368177}
   - component: {fileID: 970368178}
+  - component: {fileID: 970368177}
   m_Layer: 0
   m_Name: LeftSecondHitWall
   m_TagString: Untagged
@@ -10582,11 +10584,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1509558612}
-  User1hitScore: 2000
-  User2hitScore: 0
+  UserhitScore: 2000
   scoreInformationText: {fileID: 1769982742}
   ScoreUpBGM: {fileID: 8300000, guid: 9cb7ec097571a4263b95ec70a0c1ff49, type: 3}
   HomeRunBGM: {fileID: 0}
+  isFever: 0
 --- !u!82 &970368178
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10726,6 +10728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5af5ce26178b4d0faa0bcfcbfc2fb9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreManager: {fileID: 0}
   slider: {fileID: 608574309}
   maxValue: 0
   isClicked: 0
@@ -11136,11 +11139,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1509558612}
-  User1hitScore: 10000
-  User2hitScore: 0
+  UserhitScore: 10000
   scoreInformationText: {fileID: 1769982742}
   ScoreUpBGM: {fileID: 0}
   HomeRunBGM: {fileID: 8300000, guid: 10b8883c8d3be464381f1c558958383e, type: 3}
+  isFever: 0
 --- !u!82 &1206878262
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11762,8 +11765,8 @@ GameObject:
   - component: {fileID: 1474191649}
   - component: {fileID: 1474191648}
   - component: {fileID: 1474191647}
-  - component: {fileID: 1474191646}
   - component: {fileID: 1474191650}
+  - component: {fileID: 1474191646}
   m_Layer: 0
   m_Name: LeftFirstHitWall
   m_TagString: Untagged
@@ -11798,11 +11801,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1509558612}
-  User1hitScore: 1000
-  User2hitScore: 0
+  UserhitScore: 1000
   scoreInformationText: {fileID: 1769982742}
   ScoreUpBGM: {fileID: 8300000, guid: 9cb7ec097571a4263b95ec70a0c1ff49, type: 3}
   HomeRunBGM: {fileID: 0}
+  isFever: 0
 --- !u!65 &1474191647
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12503,8 +12506,8 @@ GameObject:
   - component: {fileID: 1575867891}
   - component: {fileID: 1575867890}
   - component: {fileID: 1575867889}
-  - component: {fileID: 1575867893}
   - component: {fileID: 1575867894}
+  - component: {fileID: 1575867893}
   m_Layer: 0
   m_Name: RightSecondHitWall
   m_TagString: Untagged
@@ -12601,11 +12604,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1509558612}
-  User1hitScore: 2000
-  User2hitScore: 0
+  UserhitScore: 2000
   scoreInformationText: {fileID: 1769982742}
   ScoreUpBGM: {fileID: 8300000, guid: 9cb7ec097571a4263b95ec70a0c1ff49, type: 3}
   HomeRunBGM: {fileID: 0}
+  isFever: 0
 --- !u!82 &1575867894
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12929,11 +12932,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1509558612}
-  User1hitScore: 3000
-  User2hitScore: 0
+  UserhitScore: 3000
   scoreInformationText: {fileID: 1769982742}
-  ScoreUpBGM: {fileID: 8300000, guid: 9864fcb4c7eb843d19f3f76343d0dda8, type: 3}
+  ScoreUpBGM: {fileID: 8300000, guid: 10b8883c8d3be464381f1c558958383e, type: 3}
   HomeRunBGM: {fileID: 0}
+  isFever: 0
 --- !u!82 &1645078566
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13601,8 +13604,8 @@ GameObject:
   - component: {fileID: 1816974433}
   - component: {fileID: 1816974432}
   - component: {fileID: 1816974431}
-  - component: {fileID: 1816974430}
   - component: {fileID: 1816974434}
+  - component: {fileID: 1816974430}
   m_Layer: 0
   m_Name: RightFirstHitWall
   m_TagString: Untagged
@@ -13637,11 +13640,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1509558612}
-  User1hitScore: 1000
-  User2hitScore: 0
+  UserhitScore: 1000
   scoreInformationText: {fileID: 1769982742}
   ScoreUpBGM: {fileID: 8300000, guid: 9cb7ec097571a4263b95ec70a0c1ff49, type: 3}
   HomeRunBGM: {fileID: 0}
+  isFever: 0
 --- !u!65 &1816974431
 BoxCollider:
   m_ObjectHideFlags: 0

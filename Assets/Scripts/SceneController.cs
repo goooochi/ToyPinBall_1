@@ -110,7 +110,7 @@ public class SceneController : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name == "Ranking")
         {
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 ToResult();
             }

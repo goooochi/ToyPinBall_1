@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class SliderController : MonoBehaviour
 {
     public static SliderController instance;
-    static GameManager gameManager;
+    
+    public ScoreManager scoreManager;
 
     public  Slider slider;
     public bool maxValue;
@@ -58,7 +59,7 @@ public class SliderController : MonoBehaviour
         {
             Debug.Log(SecondClickLock + " 前段階");
             isClicked = true;
-            MaskCube.SetActive(false);
+            StartCoroutine(Setactivefalse(2, MaskCube));
             MissionText.text = "";
             TextFlicker.instance.txt.gameObject.SetActive(false);
 
@@ -77,16 +78,16 @@ public class SliderController : MonoBehaviour
                     if (BallCheckCount == 1)
                     {
                         Ball1.SetActive(true);
-                    }
-                    if (BallCheckCount == 2)
+                    }else if (BallCheckCount == 2)
                     {
                         Ball2.SetActive(true);
-                    }
-                    if (BallCheckCount == 3)
+                        ScoreManager.instance.isFever = true;
+                    }else if (BallCheckCount == 3)
                     {
                         Ball3.SetActive(true);
                         //ボールを2個生成
                         GameManager.instance.Invoke("ScoreupballInstantiate", 2.0f);
+                        GameOverManager.instance.TwoBalls = true;
                     }
                 }
                 else
@@ -150,5 +151,10 @@ public class SliderController : MonoBehaviour
         text.text = "";
     }
 
+    public IEnumerator Setactivefalse(int sec1, GameObject gameObject)
+    {
+        yield return new WaitForSeconds(sec1);
+        gameObject.SetActive(false);
+    }
     
 }

@@ -13,12 +13,10 @@ public class GameOverManager : MonoBehaviour
     //Outの実装
     public GameObject Out1;
     public GameObject Out2;
-
     public int outCount = 0;
-
     public static int sceneCount = 1;
+    //public bool TwoBalls;
 
-    
     public AudioClip BGM;
     AudioSource Audio;
 
@@ -85,12 +83,23 @@ public class GameOverManager : MonoBehaviour
         Audio.PlayOneShot(BGM);
         if (collision.gameObject.tag == "Ball")
         {
+            //if (TwoBalls)
+            //{
+
+
+            //}
+            //else
+            //{
+            //    outCount++;
+            //}
+
             outCount++;
-            if(outCount <= 2)
+            if (outCount <= 2)
             {
                 SliderController.instance.slider.gameObject.SetActive(true);
                 SliderController.instance.isClicked = false;
                 SliderController.instance.SecondClickLock = false;
+                Debug.Log("SecondClickLock変えたよ");
                 //GameManager.instance.BallInstantiate();
                 GameManager.instance.isCatchCount = 0;
             }

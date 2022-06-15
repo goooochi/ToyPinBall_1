@@ -7,6 +7,7 @@ public class SliderController : MonoBehaviour
 {
     public static SliderController instance;
     static GameManager gameManager;
+
     public  Slider slider;
     public bool maxValue;
     public bool isClicked;
@@ -42,7 +43,7 @@ public class SliderController : MonoBehaviour
         slider.value = 1;
         maxValue = false;
         isClicked = false;
-        SecondClickLock = true;
+        SecondClickLock = false;
 
         instantiateNumber_1 = Random.Range(70, 90);
         
@@ -53,16 +54,17 @@ public class SliderController : MonoBehaviour
     void Update()
     {
 
-       
-        if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.RightShift))
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.RightShift))
         {
+            Debug.Log(SecondClickLock + " 前段階");
             isClicked = true;
             MaskCube.SetActive(false);
             MissionText.text = "";
+            TextFlicker.instance.txt.gameObject.SetActive(false);
 
             if (SecondClickLock == false)
             {
-                Debug.Log("SecondClickLock");
+                
                 BallCheck = true;
 
                 // ballの処理
@@ -84,7 +86,6 @@ public class SliderController : MonoBehaviour
                     {
                         Ball3.SetActive(true);
                         //ボールを2個生成
-                        BallCheck = true;
                         GameManager.instance.Invoke("ScoreupballInstantiate", 2.0f);
                     }
                 }
@@ -93,6 +94,8 @@ public class SliderController : MonoBehaviour
                     resultText.text = "Success!";
                     StartCoroutine(TextDelete(2, resultText));
                 }
+
+                Debug.Log(SecondClickLock + " 2段階");
 
                 // ballの生成
                 if (BallCheck)
@@ -108,14 +111,12 @@ public class SliderController : MonoBehaviour
            
         }
 
-
-
         //クリックされていなければ実行
         if (!isClicked)
         {
             
             MissionText.text = $"Stop at {instantiateNumber_1}% or more!";
-            
+            TextFlicker.instance.txt.gameObject.SetActive(true);
             MaskCube.SetActive(true);
 
 

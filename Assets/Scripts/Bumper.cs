@@ -98,6 +98,7 @@ public class Bumper : MonoBehaviour
                 {
                     SliderController.instance.slider.gameObject.SetActive(true);
                     SliderController.instance.isClicked = false;
+                    SliderController.instance.SecondClickLock = false;
                     //GameManager.instance.BallInstantiate();
                 }
 

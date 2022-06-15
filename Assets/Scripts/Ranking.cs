@@ -4,25 +4,18 @@ using UnityEngine.UI;
 public class Ranking : MonoBehaviour
 {
     public static Ranking instance;
+    static GameManager gameManager;
 
+    public Text[] rankingScoreText = new Text[5];
+    public Text[] rankingUserNameText = new Text[5];
 
-    [SerializeField, Header("数値")]
-    int point;
-    string UserName;
-
-    string[] ranking = { "ランキング1位", "ランキング2位", "ランキング3位", "ランキング4位", "ランキング5位" };
+    //キーの作成
+    string[] rankingkey = { "ランキング1位", "ランキング2位", "ランキング3位", "ランキング4位", "ランキング5位" };
     int[] rankingValue = new int[5];
 
-    string[] rankingUserName = { "User1", "User2", "User3", "User4", "User5" };
+    //キーの作成
+    string[] rankingUserNamekey = { "User1", "User2", "User3", "User4", "User5" };
     string[] rankingName = new string[5];
-
-
-    [SerializeField, Header("表示させるテキスト_value")]
-    Text[] rankingText = new Text[5];
-
-    [SerializeField, Header("表示させるテキスト_name")]
-    Text[] rankingnameText = new Text[5];
-
 
     public void Awake()
     {
@@ -35,34 +28,35 @@ public class Ranking : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        GetRanking();
+        //GetRanking();
 
-        SetRanking(point, UserName);
-
-        for (int i = 0; i < rankingText.Length; i++)
+        for (int i = 0; i < rankingkey.Length; i++)
         {
-            rankingText[i].text = rankingValue[i].ToString();
+            rankingScoreText[i].text = PlayerPrefs.GetInt(rankingkey[i]).ToString();
+            rankingUserNameText[i].text = PlayerPrefs.GetString(rankingUserNamekey[i]);
         }
+
+
+        //Test.text = PlayerPrefs.GetInt("キー", GameManager.scoreUser2).ToString();
     }
 
-    /// <summary>
-    /// ランキング呼び出し
-    /// </summary>
     public void GetRanking()
     {
         //ランキング呼び出し
-        for (int i = 0; i < ranking.Length; i++)
+        for (int i = 0; i < rankingkey.Length; i++)
         {
-            rankingValue[i] = PlayerPrefs.GetInt(ranking[i]);
+            rankingValue[i] = PlayerPrefs.GetInt(rankingkey[i]);
+            rankingName[i] = PlayerPrefs.GetString(rankingUserNamekey[i]);
         }
     }
-    /// <summary>
-    /// ランキング書き込み
-    /// </summary>
-    public void SetRanking(int _value,string _UserName)
+
+
+    public void SetRanking(int _value, string _UserName)
     {
+        GetRanking();
+        Debug.Log("書き込み");
         //書き込み用
-        for (int i = 0; i < ranking.Length; i++)
+        for (int i = 0; i < rankingkey.Length; i++)
         {
             //取得した値とRankingの値を比較して入れ替え
             if (_value > rankingValue[i])
@@ -77,31 +71,11 @@ public class Ranking : MonoBehaviour
         }
 
         //入れ替えた値を保存
-        for (int i = 0; i < ranking.Length; i++)
+        for (int i = 0; i < rankingkey.Length; i++)
         {
-            PlayerPrefs.SetInt(ranking[i], rankingValue[i]);
-            PlayerPrefs.SetString(rankingUserName[i], rankingName[i]);
+            PlayerPrefs.SetInt(rankingkey[i], rankingValue[i]);
+            PlayerPrefs.SetString(rankingUserNamekey[i], rankingName[i]);
         }
     }
 
-    //public void SetRankingName(string userName)
-    //{
-    //    //書き込み用
-    //    for (int i = 0; i < ranking.Length; i++)
-    //    {
-    //        //取得した値とRankingの値を比較して入れ替え
-    //        if (userName > rankingName[i])
-    //        {
-    //            var change = rankingName[i];
-    //            rankingName[i] = userName;
-    //            userName = change;
-    //        }
-    //    }
-
-    //    //入れ替えた値を保存
-    //    for (int i = 0; i < ranking.Length; i++)
-    //    {
-    //        PlayerPrefs.SetString(rankingUserName[i], rankingName[i]);
-    //    }
-    //}
 }

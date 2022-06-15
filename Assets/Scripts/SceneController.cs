@@ -30,9 +30,9 @@ public class SceneController : MonoBehaviour
                 }
         }
 
-        if(SceneManager.GetActiveScene().name == "OperationExplanation")
+        if (SceneManager.GetActiveScene().name == "OperationExplanation")
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Return))
             {
                 ToMain();
             }
@@ -76,6 +76,7 @@ public class SceneController : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "1-5")
         {
+
             //1-6に移動
             if (GameOverManager.sceneCount == 6)
             {
@@ -85,6 +86,7 @@ public class SceneController : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "1-6")
         {
+
             //1-6に移動
             if (GameOverManager.sceneCount == 7)
             {
@@ -106,7 +108,13 @@ public class SceneController : MonoBehaviour
                 ToRannking();
             }
         }
-
+        if (SceneManager.GetActiveScene().name == "Ranking")
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                ToResult();
+            }
+        }
     }
 
     public void ToMain()

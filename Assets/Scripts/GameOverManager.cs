@@ -10,7 +10,6 @@ public class GameOverManager : MonoBehaviour
 
     static GameManager gameManager;
 
-
     //Outの実装
     public GameObject Out1;
     public GameObject Out2;
@@ -22,7 +21,6 @@ public class GameOverManager : MonoBehaviour
     
     public AudioClip BGM;
     AudioSource Audio;
-
 
 
     public void Awake()
@@ -37,6 +35,7 @@ public class GameOverManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         Out1.SetActive(false);
         Out2.SetActive(false);
 
@@ -52,10 +51,12 @@ public class GameOverManager : MonoBehaviour
         if (outCount == 1)
         {
             Out1.SetActive(true);
-        }else if (outCount == 2)
+        }
+        else if (outCount == 2)
         {
             Out2.SetActive(true);
-        }else if(outCount == 3)
+        }
+        else if(outCount == 3)
         {
             if (SceneManager.GetActiveScene().name == "1-6")
             {
@@ -69,8 +70,10 @@ public class GameOverManager : MonoBehaviour
 
             if (GameManager.instance.isPlaying)
             {
-                Debug.Log("なんで");
                 sceneCount++;
+                //
+                //sceneCount = 7;
+                //
                 GameManager.instance.isPlaying = false;
             }
 
@@ -85,10 +88,15 @@ public class GameOverManager : MonoBehaviour
             outCount++;
             if(outCount <= 2)
             {
-                GameManager.instance.BallInstantiate();
+                SliderController.instance.slider.gameObject.SetActive(true);
+                SliderController.instance.isClicked = false;
+                //GameManager.instance.BallInstantiate();
                 GameManager.instance.isCatchCount = 0;
             }
+            Bumper.instance.Strike1.SetActive(false);
+            Bumper.instance.Strike2.SetActive(false);
         }
         Destroy(collision.gameObject);
+        
     }
 }

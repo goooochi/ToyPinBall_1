@@ -236,7 +236,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press Space And Play Game!
+  m_Text: Press Return And Play Game!
 --- !u!222 &194401850
 CanvasRenderer:
   m_ObjectHideFlags: 0

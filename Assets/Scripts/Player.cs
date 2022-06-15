@@ -28,7 +28,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Rigidbody playerRigid = transform.GetComponent<Rigidbody>();
+        //playerRigid.AddForce(playerRigid.velocity);
     }
 
     public void OnCollisionStay(Collision collision)

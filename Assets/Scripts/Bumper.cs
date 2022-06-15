@@ -8,7 +8,11 @@ public class Bumper : MonoBehaviour
     private float power = 200.0f;
     private Vector3 vector;
 
-    
+    //Outの実装
+    public GameObject Strike1;
+    public GameObject Strike2;
+
+    public int outCount = 0;
 
     //アニメーション
     Animator animator;
@@ -19,8 +23,8 @@ public class Bumper : MonoBehaviour
 
     public static Bumper instance;
     public GameManager gameManager;
-
     static GameOverManager gameOverManager;
+    //public static SliderController sliderController;
 
     public AudioClip BGM;
     AudioSource Audio;
@@ -38,10 +42,10 @@ public class Bumper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Strike1.SetActive(false);
+        Strike2.SetActive(false);
 
         animator = GetComponent<Animator>();
-        playerRigidbody = GetComponent<Rigidbody>();
 
         //このスクリプトがアタッチされたオブジェクトに付与されているAudioSourceコンポーネントを認識させる
         Audio = GetComponent<AudioSource>();
@@ -63,37 +67,71 @@ public class Bumper : MonoBehaviour
             // プレイヤーのリジッドボディを取得
             Rigidbody playerRigid = other.transform.GetComponent<Rigidbody>();
 
-            if(playerRigid.velocity.magnitude < 2.5f)
+            if(playerRigid.velocity.magnitude < 4.5f)
             {
-                vector = new Vector3(Random.Range(-2,3),0,0);
-                playerRigid.AddForce(-playerRigid.velocity * power * 5);
-                playerRigid.AddForce(vector * 300);
+                vector = new Vector3(Random.Range(-3,4),0,0);
+                playerRigid.AddForce(-playerRigid.velocity * power * 6);
+                playerRigid.AddForce(vector * 400);
             }
             else
             {
                 playerRigid.AddForce(-playerRigid.velocity * power);
             }
 
+
             GameManager.instance.isCatchCount += 1;
-            Debug.Log("isCatchCount : " + GameManager.instance.isCatchCount.ToString());
-            if (GameManager.instance.isCatchCount == 3)
+            if (GameManager.instance.isCatchCount == 1)
+            {
+                Debug.Log("Strike1");
+                Strike1.SetActive(true);
+            }
+            else if (GameManager.instance.isCatchCount == 2)
+            {
+                Debug.Log("Strike2");
+                Strike2.SetActive(true);
+            }
+            else
             {
                 Audio.PlayOneShot(BGM);
                 GameOverManager.gameOverManager.outCount++;
                 if (GameOverManager.gameOverManager.outCount <= 2)
                 {
-                    GameManager.instance.BallInstantiate();
+                    SliderController.instance.slider.gameObject.SetActive(true);
+                    SliderController.instance.isClicked = false;
+                    //GameManager.instance.BallInstantiate();
                 }
 
                 Destroy(other.gameObject);
+                Strike1.SetActive(false);
+                Strike2.SetActive(false);
                 GameManager.instance.isCatchCount = 0;
             }
-
+ 
             animator.SetBool("Attack", true);
             Invoke("turnFalse", 1.0f);
             
         }
-    }
+
+        if (other.transform.CompareTag("ScoreupBall"))
+        {
+            // プレイヤーのリジッドボディを取得
+            Rigidbody playerRigid = other.transform.GetComponent<Rigidbody>();
+
+            if (playerRigid.velocity.magnitude < 4.5f)
+            {
+                vector = new Vector3(Random.Range(-3, 4), 0, 0);
+                playerRigid.AddForce(-playerRigid.velocity * power * 6);
+                playerRigid.AddForce(vector * 400);
+            }
+            else
+            {
+                playerRigid.AddForce(-playerRigid.velocity * power);
+            }
+
+            animator.SetBool("Attack", true);
+            Invoke("turnFalse", 1.0f);
+        }
+     }
 
     public void turnFalse()
     {

@@ -8,13 +8,13 @@ public class ResultViewController : MonoBehaviour
 {
 
     static GameManager gameManager;
-    static Ranking ranking;
     static InputTextManager inputTextManager;
 
     public Text winnerText;
 
     public Text scoreResltText;
 
+    private static bool isLook = true;
 
     public AudioClip WinBGM;
     public AudioClip DrawBGM;
@@ -30,9 +30,9 @@ public class ResultViewController : MonoBehaviour
         {
             Audio.PlayOneShot(WinBGM);
             winnerText.text = $"{InputTextManager.instance.User1NameText.text} is Win!";
-            scoreResltText.text = $"Score :{GameManager.scoreUser1}";
+            scoreResltText.text = $"Score : {GameManager.scoreUser1}";
         }
-        else if(GameManager.scoreUser1 < GameManager.scoreUser2)
+        else if (GameManager.scoreUser1 < GameManager.scoreUser2)
         {
             Audio.PlayOneShot(WinBGM);
             winnerText.text = $"{InputTextManager.instance.User2NameText.text} is Win!";
@@ -41,11 +41,24 @@ public class ResultViewController : MonoBehaviour
         else
         {
             Audio.PlayOneShot(DrawBGM);
+            //
+            scoreResltText.text = $"Score : {GameManager.scoreUser2}";
+            //
             winnerText.text = "Draw!";
         }
 
-        Ranking.instance.SetRanking(GameManager.scoreUser1, InputTextManager.instance.User1NameText.ToString());
-        Ranking.instance.SetRanking(GameManager.scoreUser2, InputTextManager.instance.User2NameText.ToString());
+        Ranking ranking = new Ranking();
+
+        if (isLook == true)
+        {
+            //ranking.SetRanking(GameManager.scoreUser1, InputTextManager.instance.User1NameText.text);
+            ranking.SetRanking(GameManager.scoreUser1, InputTextManager.instance.User1NameText.text);
+            ranking.SetRanking(GameManager.scoreUser2, InputTextManager.instance.User2NameText.text);
+            isLook = false;
+        }
+
+
+
 
     }
 

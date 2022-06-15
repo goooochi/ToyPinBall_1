@@ -90,6 +90,7 @@ public class GameOverManager : MonoBehaviour
             {
                 SliderController.instance.slider.gameObject.SetActive(true);
                 SliderController.instance.isClicked = false;
+                SliderController.instance.SecondClickLock = false;
                 //GameManager.instance.BallInstantiate();
                 GameManager.instance.isCatchCount = 0;
             }

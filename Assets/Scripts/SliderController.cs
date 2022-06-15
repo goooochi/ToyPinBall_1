@@ -11,13 +11,16 @@ public class SliderController : MonoBehaviour
     public bool maxValue;
     public bool isClicked;
     public bool BallCheck = true;
+    public bool SecondClickLock;
     public Text resultText;
     public int BallCheckCount = 0;
     public GameObject Ball1;
     public GameObject Ball2;
     public GameObject Ball3;
+    public GameObject MaskCube;
     int instantiateNumber_1;
-    int instantiateNumber_2;
+    public Text MissionText;
+   
 
     public void Awake()
     {
@@ -30,75 +33,98 @@ public class SliderController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+
         Ball1.SetActive(false);
         Ball2.SetActive(false);
         Ball3.SetActive(false);
 
-        slider.value = 0;
+        slider.value = 1;
         maxValue = false;
         isClicked = false;
+        SecondClickLock = true;
+
+        instantiateNumber_1 = Random.Range(70, 90);
         
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
+
+       
+        if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.RightShift))
         {
-            BallCheck = true;
             isClicked = true;
+            MaskCube.SetActive(false);
+            MissionText.text = "";
 
-            if(slider.value < 75)
+            if (SecondClickLock == false)
             {
-                BallCheckCount++;
-                resultText.text = "Faild";
-                Invoke("TextDelete", 2.0f);
+                Debug.Log("SecondClickLock");
+                BallCheck = true;
 
-                if (BallCheckCount == 1)
+                // ballの処理
+                if (slider.value < instantiateNumber_1)
                 {
-                    Ball1.SetActive(true);
+                    BallCheckCount++;
+                    resultText.text = "Faild";
+                    StartCoroutine(TextDelete(2, resultText));
+
+                    if (BallCheckCount == 1)
+                    {
+                        Ball1.SetActive(true);
+                    }
+                    if (BallCheckCount == 2)
+                    {
+                        Ball2.SetActive(true);
+                    }
+                    if (BallCheckCount == 3)
+                    {
+                        Ball3.SetActive(true);
+                        //ボールを2個生成
+                        BallCheck = true;
+                        GameManager.instance.Invoke("ScoreupballInstantiate", 2.0f);
+                    }
                 }
-                if (BallCheckCount == 2)
+                else
                 {
-                    Ball2.SetActive(true);
-                }
-                if (BallCheckCount == 3)
-                {
-                    Ball3.SetActive(true);
-                    BallCheck = true;
-                    GameManager.instance.Invoke("ScoreupballInstantiate", 2.0f);
+                    resultText.text = "Success!";
+                    StartCoroutine(TextDelete(2, resultText));
                 }
 
-            }
-            else
-            {
-                resultText.text = "Success!";
-                Invoke("TextDelete", 2.0f);
-            }
+                // ballの生成
+                if (BallCheck)
+                {
+                    GameManager.instance.Invoke("BallInstantiate", 2.0f);
+                    BallCheck = false;
+                    slider.gameObject.SetActive(false);
+                }
 
-            if (BallCheck)
-            {
-                Debug.Log("Slider");
-                GameManager.instance.Invoke("BallInstantiate", 2.0f);
-                BallCheck = false;
-                slider.gameObject.SetActive(false);
+                
+                SecondClickLock = true;
             }
+           
         }
+
+
 
         //クリックされていなければ実行
         if (!isClicked)
         {
-            instantiateNumber_1 = Random.Range(70, 90);
-            instantiateNumber_2 = Random.Range(70, 90);
+            
+            MissionText.text = $"Stop at {instantiateNumber_1}% or more!";
+            
+            MaskCube.SetActive(true);
 
-            //5に達した場合と、0に戻った場合のフラグ切替え
+
             if (slider.value == 100)
             {
                 maxValue = true;
             }
 
-            if (slider.value == 0)
+            if (slider.value <= 1)
             {
                 maxValue = false;
             }
@@ -106,17 +132,22 @@ public class SliderController : MonoBehaviour
             //フラグによるスライダー値の増減
             if (maxValue)
             {
-                slider.value -= 10f;
+                slider.value -= slider.value / 8;
             }
             else
             {
-                slider.value += 10f;
+                slider.value += 1;
+                slider.value += slider.value / 8;
             }
         }
     }
 
-    public void TextDelete()
+    public IEnumerator TextDelete(int sec1, Text text)
     {
-        resultText.text = "";
+        yield return new WaitForSeconds(sec1);
+
+        text.text = "";
     }
+
+    
 }

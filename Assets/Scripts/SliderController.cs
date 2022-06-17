@@ -55,7 +55,7 @@ public class SliderController : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.RightShift))
+        if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.RightShift))
         {
             Debug.Log(SecondClickLock + " 前段階");
             isClicked = true;

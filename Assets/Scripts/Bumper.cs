@@ -64,14 +64,17 @@ public class Bumper : MonoBehaviour
             // プレイヤーのリジッドボディを取得
             Rigidbody playerRigid = other.transform.GetComponent<Rigidbody>();
 
-            if (playerRigid.velocity.magnitude < 4.5f)
+            Debug.Log(playerRigid.velocity.magnitude);
+            if (playerRigid.velocity.magnitude < 25.5f)
             {
                 vector = new Vector3(Random.Range(-3, 4), 0, 0);
-                playerRigid.AddForce(-playerRigid.velocity * power * 6);
+                playerRigid.AddForce(-playerRigid.velocity * power * 3);
                 playerRigid.AddForce(vector * 400);
             }
             else
             {
+                vector = new Vector3(Random.Range(-3, 4), 0, 0);
+                playerRigid.AddForce(vector * 400);
                 playerRigid.AddForce(-playerRigid.velocity * power);
             }
 
